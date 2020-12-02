@@ -14,8 +14,11 @@ for i, n in enumerate(numbers):
 
 # Part b)
 found = False
+limit = 2020 - min(numbers)
 for i, x in enumerate(numbers):
     for j, y in enumerate(numbers[i:]):
+        if x + y > limit:
+            continue
         for z in numbers[i+j:]:
             if x + y + z == 2020:
                 print(x * y * z)
@@ -25,3 +28,5 @@ for i, x in enumerate(numbers):
             break
     if found:
         break
+
+print(min(numbers))
